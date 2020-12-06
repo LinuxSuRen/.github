@@ -1,9 +1,9 @@
 # Official documentation at http://goreleaser.com
-project_name: cgit
+project_name: .github
 builds:
 - env:
   - CGO_ENABLED=0
-  binary: cgit
+  binary: .github
   goarch:
     - amd64
     - arm64
@@ -46,12 +46,12 @@ changelog:
     - '^test:'
 brews:
   -
-    name: cgit
+    name: .github
     tap:
       owner: linuxsuren
-      name: homebrew-cgit
+      name: homebrew-linuxsuren
     folder: Formula
-    homepage: "https://github.com/linuxsuren/cgit"
+    homepage: "https://github.com/linuxsuren/.github"
     description: cgit is a tiny tool for Chinese developers.
     dependencies:
       - name: vim
@@ -59,7 +59,7 @@ brews:
       - name: bash-completion
         type: optional
     test: |
-      version_output = shell_output("#{bin}/cgit version")
+      version_output = shell_output("#{bin}/.github version")
       assert_match version.to_s, version_output
     install: |
       bin.install name
@@ -67,7 +67,7 @@ brews:
       prefix.install_metafiles
 nfpms:
   - file_name_template: "{{ .Binary }}-{{.Os}}-{{.Arch}}"
-    homepage: https://github.com/linuxsuren/cgit
+    homepage: https://github.com/linuxsuren/.github
     description: cgit is a tiny tool for Chinese developers.
     maintainer: rick <rick@jenkins-zh.cn>
     license: MIT
